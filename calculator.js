@@ -18,6 +18,7 @@
 //         Resultado
 
 // A interface é livre, usem a imaginação!
+const history = []
 function insert(num) {
     var number = document.getElementById('screen').innerHTML
     document.getElementById('screen').innerHTML = number + num
@@ -46,12 +47,33 @@ function calc() {
 function squareRoot() {
     var result = document.getElementById('screen').innerHTML
     document.getElementById('screen').innerHTML = Math.sqrt(result)
+    let operation = {
+        valores: parseFloat(result),
+        operador: 'raiz quadrada',
+        resultado: Math.sqrt(result)
+    }
+    history.push(operation)
+    console.log(history)
 }
 function sen() {
     var result = document.getElementById('screen').innerHTML
     document.getElementById('screen').innerHTML = Math.sin(result)
+    let operation = {
+        valores: parseFloat(result),
+        operador: 'seno',
+        resultado: Math.sin(result)
+    }
+    history.push(operation)
+    console.log(history)
 }
 function cos() {
     var result = document.getElementById('screen').innerHTML
     document.getElementById('screen').innerHTML = Math.cos(result)
+    let operation = {
+        valores: parseFloat(result),
+        operador: 'coseno',
+        resultado: Math.cos(result)
+    }
+    history.push(operation)
+    console.log(history)
 }
