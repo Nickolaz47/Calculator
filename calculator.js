@@ -37,6 +37,46 @@ function calc() {
         // Tratando o erro de uma expressão inválida
         try {
             document.getElementById('screen').innerHTML = eval(result)
+            let obj = (operation) => {
+                if (operation.indexOf('+')) {
+                    return {
+                        valores: operation.split('+'),
+                        operador: '+',
+                        resultado: eval(operation)
+                    }
+                } else if (operation.indexOf('-')) {
+                    return {
+                        valores: operation.split('-'),
+                        operador: '-',
+                        resultado: eval(operation)
+                    }
+                } else if (operation.indexOf('**')) {
+                    return {
+                        valores: operation.split('**'),
+                        operador: '**',
+                        resultado: eval(operation)
+                    }
+                } else if (operation.indexOf('*')) {
+                    return {
+                        valores: operation.split('*'),
+                        operador: '*',
+                        resultado: eval(operation)
+                    }
+                } else if (operation.indexOf('/')) {
+                    return {
+                        valores: operation.split('/'),
+                        operador: '/',
+                        resultado: eval(operation)
+                    }
+                } else if (operation.indexOf('%')) {
+                    return {
+                        valores: operation.split('%'),
+                        operador: '%',
+                        resultado: eval(operation)
+                    }
+                }
+            }
+            history.push(obj(result)) 
         } catch (SyntaxError) {
             document.getElementById('screen').innerHTML = 'Cálculo inválido!'
         }
@@ -53,7 +93,6 @@ function squareRoot() {
         resultado: Math.sqrt(result)
     }
     history.push(operation)
-    console.log(history)
 }
 function sen() {
     var result = document.getElementById('screen').innerHTML
@@ -64,7 +103,6 @@ function sen() {
         resultado: Math.sin(result)
     }
     history.push(operation)
-    console.log(history)
 }
 function cos() {
     var result = document.getElementById('screen').innerHTML
@@ -75,5 +113,4 @@ function cos() {
         resultado: Math.cos(result)
     }
     history.push(operation)
-    console.log(history)
 }
