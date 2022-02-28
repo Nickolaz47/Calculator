@@ -1,0 +1,31 @@
+#screen {
+    font-size: 35px;
+    font-weight: bold;
+    height: 70px;
+    margin-bottom: 10px;
+    text-align: right;
+}
+#borda {
+    background-color: gray;
+    width: 500px;
+    padding: 30px;
+}
+section div{
+    margin-top: 50px;
+    display: flex;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 500px;    
+}
+.btn.btn-primary {
+    height: 75px;
+    font-size: 25px;
+    background-color: black;
+    border-color: white;
+    text-align: center;
+    padding: auto;
+    width: 100%;
+}
+.form-control {    
+    margin-bottom: 10px;
+}
