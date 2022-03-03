@@ -38,37 +38,37 @@ function calc() {
         try {
             document.getElementById('screen').innerHTML = eval(result)
             let obj = (operation) => {
-                if (operation.indexOf('+')) {
+                if (operation.indexOf('+') != -1) {
                     return {
                         valores: operation.split('+'),
                         operador: '+',
                         resultado: eval(operation)
                     }
-                } else if (operation.indexOf('-')) {
+                } else if (operation.indexOf('-') != -1) {
                     return {
                         valores: operation.split('-'),
                         operador: '-',
                         resultado: eval(operation)
                     }
-                } else if (operation.indexOf('**')) {
+                } else if (operation.indexOf('**') != -1) {
                     return {
                         valores: operation.split('**'),
                         operador: '**',
                         resultado: eval(operation)
                     }
-                } else if (operation.indexOf('*')) {
+                } else if (operation.indexOf('*') != -1) {
                     return {
                         valores: operation.split('*'),
                         operador: '*',
                         resultado: eval(operation)
                     }
-                } else if (operation.indexOf('/')) {
+                } else if (operation.indexOf('/') != -1) {
                     return {
                         valores: operation.split('/'),
                         operador: '/',
                         resultado: eval(operation)
                     }
-                } else if (operation.indexOf('%')) {
+                } else if (operation.indexOf('%') != -1) {
                     return {
                         valores: operation.split('%'),
                         operador: '%',
@@ -113,4 +113,9 @@ function cos() {
         resultado: Math.cos(result)
     }
     history.push(operation)
+}
+function showHistory() {
+    let historyLog = document.getElementById('mostra-historico')
+    console.log(history)
+    historyLog.innerHTML = JSON.stringify(history, null, ' ')
 }

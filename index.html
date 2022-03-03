@@ -14,47 +14,63 @@
     </header>
     <main>
         <section id="calculadora">
-            <div id="borda" class="container">
-                <div class="row justify-content-start">
+          <div class="container">
+            <div class="row justify-content-evenly">
+            <div id="borda" class="col-5">
+              <div id="borda" class="container">
+                  <div id='teclado' class="row justify-content-start">
                     <div class="col-12">
                         <p id="screen" class="form-control" type="text"></p>
                     </div>                    
                     <div class="btn-group" role="group">
-                        <button onclick="clean()" type="button" class="btn btn-primary">C</button>
-                        <button onclick="insert('**')" type="button" class="btn btn-primary">x<sup>y</sup></button>
-                        <button onclick="squareRoot()" type="button" class="btn btn-primary">&radic;</button>
-                        <button onclick="backspace()" type="button" class="btn btn-primary"><i class="material-icons">backspace</i></button>
-                      </div>
-                      <div class="btn-group" role="group">
-                        <button onclick="sen()" type="button" class="btn btn-primary">sen</button>
-                        <button onclick="cos()" type="button" class="btn btn-primary">cos</button>
-                        <button onclick="insert(Math.PI)" type="button" class="btn btn-primary">&#960;</button>
-                        <button onclick="insert('+')" type="button" class="btn btn-primary">+</button>
-                      </div>
-                      <div class="btn-group" role="group">
-                        <button onclick="insert('1')" type="button" class="btn btn-primary">1</button>
-                        <button onclick="insert('2')" type="button" class="btn btn-primary">2</button>
-                        <button onclick="insert('3')" type="button" class="btn btn-primary">3</button>
-                        <button onclick="insert('-')" type="button" class="btn btn-primary">-</button>
-                      </div>
-                      <div class="btn-group" role="group">
-                        <button onclick="insert('4')" type="button" class="btn btn-primary">4</button>
-                        <button onclick="insert('5')" type="button" class="btn btn-primary">5</button>
-                        <button onclick="insert('6')" type="button" class="btn btn-primary">6</button>
-                        <button onclick="insert('*')" type="button" class="btn btn-primary">x</button>
-                      </div>
-                      <div class="btn-group" role="group">
-                        <button onclick="insert('7')" type="button" class="btn btn-primary">7</button>
-                        <button onclick="insert('8')" type="button" class="btn btn-primary">8</button>
-                        <button onclick="insert('9')" type="button" class="btn btn-primary">9</button>
-                        <button onclick="insert('/')" type="button" class="btn btn-primary">/</button>
-                      </div>
-                      <div class="btn-group" role="group">
-                        <button onclick="insert('%')" type="button" class="btn btn-primary">%</button>
-                        <button onclick="insert('0')" type="button" class="btn btn-primary">0</button>
-                        <button onclick="insert('.')" type="button" class="btn btn-primary">.</button>
-                        <button onclick="calc()" type="button" class="btn btn-primary">=</button>
+                      <button onclick="clean()" type="button" class="btn btn-primary">C</button>
+                      <button onclick="insert('**')" type="button" class="btn btn-primary">x<sup>y</sup></button>
+                      <button onclick="squareRoot();showHistory()" type="button" class="btn btn-primary">&radic;</button>
+                      <button onclick="backspace()" type="button" class="btn btn-primary"><i class="material-icons">backspace</i></button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button onclick="sen();showHistory()" type="button" class="btn btn-primary">sen</button>
+                      <button onclick="cos();showHistory()" type="button" class="btn btn-primary">cos</button>
+                      <button onclick="insert(Math.PI)" type="button" class="btn btn-primary">&#960;</button>
+                      <button onclick="insert('+')" type="button" class="btn btn-primary">+</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button onclick="insert('1')" type="button" class="btn btn-primary">1</button>
+                      <button onclick="insert('2')" type="button" class="btn btn-primary">2</button>
+                      <button onclick="insert('3')" type="button" class="btn btn-primary">3</button>
+                      <button onclick="insert('-')" type="button" class="btn btn-primary">-</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button onclick="insert('4')" type="button" class="btn btn-primary">4</button>
+                      <button onclick="insert('5')" type="button" class="btn btn-primary">5</button>
+                      <button onclick="insert('6')" type="button" class="btn btn-primary">6</button>
+                      <button onclick="insert('*')" type="button" class="btn btn-primary">x</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button onclick="insert('7')" type="button" class="btn btn-primary">7</button>
+                      <button onclick="insert('8')" type="button" class="btn btn-primary">8</button>
+                      <button onclick="insert('9')" type="button" class="btn btn-primary">9</button>
+                      <button onclick="insert('/')" type="button" class="btn btn-primary">/</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button onclick="insert('%')" type="button" class="btn btn-primary">%</button>
+                      <button onclick="insert('0')" type="button" class="btn btn-primary">0</button>
+                      <button onclick="insert('.')" type="button" class="btn btn-primary">.</button>
+                      <button onclick="calc();showHistory()" type="button" class="btn btn-primary">=</button>
+                    </div>
+                  </div>
                 </div>
+            </div>
+            <div class="col-5">
+              <div id="historico" class="container">
+                <div class="row justify-content-center">
+                  <h2>Histórico</h2>
+                </div>                      
+              </div>
+              <span id="mostra-historico"></span>
+            </div>
+          </div>
+        </div>
         </section>
     </main>
     <script src="calculator.js"></script>
