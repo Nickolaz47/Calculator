@@ -31,6 +31,22 @@ function backspace() {
 function clean() {
     document.getElementById('screen').innerHTML = ''
 }
+function processOperation(operation) {
+    var operators = ['+', '-', '**', '*', '/', '%']
+    var finalArray = []
+    var foundOperator = []
+    // Pegando os operadores
+    for (let operator of operators) {
+        if (operation.indexOf(operator) != -1) {
+            foundOperator.push(operator)            
+        }
+    }
+    // Pegando os valores da operação
+    let modOperation = operation.replace(/\D/g, ' ')
+    let array = modOperation.split(' ')    
+    finalArray.push(...array)
+    return [finalArray, foundOperator]
+}
 function calc() {
     var result = document.getElementById('screen').innerHTML
     if (result) {
@@ -38,42 +54,11 @@ function calc() {
         try {
             document.getElementById('screen').innerHTML = eval(result)
             let obj = (operation) => {
-                if (operation.indexOf('+') != -1) {
-                    return {
-                        valores: operation.split('+'),
-                        operador: '+',
-                        resultado: eval(operation)
-                    }
-                } else if (operation.indexOf('-') != -1) {
-                    return {
-                        valores: operation.split('-'),
-                        operador: '-',
-                        resultado: eval(operation)
-                    }
-                } else if (operation.indexOf('**') != -1) {
-                    return {
-                        valores: operation.split('**'),
-                        operador: '**',
-                        resultado: eval(operation)
-                    }
-                } else if (operation.indexOf('*') != -1) {
-                    return {
-                        valores: operation.split('*'),
-                        operador: '*',
-                        resultado: eval(operation)
-                    }
-                } else if (operation.indexOf('/') != -1) {
-                    return {
-                        valores: operation.split('/'),
-                        operador: '/',
-                        resultado: eval(operation)
-                    }
-                } else if (operation.indexOf('%') != -1) {
-                    return {
-                        valores: operation.split('%'),
-                        operador: '%',
-                        resultado: eval(operation)
-                    }
+                let processedOperation = processOperation(operation)
+                return {
+                    valores: processedOperation[0].join(', '),
+                    operadores: processedOperation[1].join(', '),
+                    resultado: eval(operation)
                 }
             }
             history.push(obj(result)) 
@@ -116,6 +101,5 @@ function cos() {
 }
 function showHistory() {
     let historyLog = document.getElementById('mostra-historico')
-    console.log(history)
     historyLog.innerHTML = JSON.stringify(history, null, ' ')
 }
