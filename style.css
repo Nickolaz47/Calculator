@@ -25,7 +25,8 @@
 #mostra-historico {
     display: flex;
     margin-top: 10px;
-    text-align: center;    
+    text-align: center; 
+    font-size: 25px;   
 }
 .btn.btn-primary {
     height: 75px;

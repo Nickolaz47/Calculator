@@ -58,6 +58,7 @@ function calc() {
                 return {
                     valores: processedOperation[0].join(', '),
                     operadores: processedOperation[1].join(', '),
+                    expressão: operation,
                     resultado: eval(operation)
                 }
             }
@@ -75,6 +76,7 @@ function squareRoot() {
     let operation = {
         valores: parseFloat(result),
         operador: 'raiz quadrada',
+        expressão: `RaizQuadrada(${result})`,
         resultado: Math.sqrt(result)
     }
     history.push(operation)
@@ -85,6 +87,7 @@ function sen() {
     let operation = {
         valores: parseFloat(result),
         operador: 'seno',
+        expressão: `seno(${result})`,        
         resultado: Math.sin(result)
     }
     history.push(operation)
@@ -95,11 +98,21 @@ function cos() {
     let operation = {
         valores: parseFloat(result),
         operador: 'coseno',
+        expressão: `coseno(${result})`,
         resultado: Math.cos(result)
     }
     history.push(operation)
 }
 function showHistory() {
     let historyLog = document.getElementById('mostra-historico')
-    historyLog.innerHTML = JSON.stringify(history, null, ' ')
+    let newHistory = (history) => {
+        let array = []
+        for (let obj of history) {
+            let newOperation = `${obj.expressão} = ${obj.resultado}`
+            array.push(newOperation)
+        }
+        return array
+    }
+    historyLog.innerHTML = newHistory(history).join(', ')
+    // historyLog.innerHTML = JSON.stringify(history, null, ' ')
 }
